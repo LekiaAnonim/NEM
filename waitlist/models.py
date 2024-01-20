@@ -70,3 +70,35 @@ class WaitlistFormSettings(BaseSiteSetting):
         # note the page type declared within the pagechooserpanel
         PageChooserPanel('waitlist_form_page', ['waitlist.WaitlistFormPage']),
     ]
+
+
+from django.db import models
+
+from wagtail.models import Page
+from wagtail.fields import RichTextField
+from wagtail.admin.panels import FieldPanel
+class LearnMore(Page):
+    template = 'waitlist/learn_more.html'
+    max_count = 1
+    body = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('body'),
+    ]
+
+
+@register_setting
+class ImportantPages(BaseSiteSetting):
+    # Fetch these pages when looking up ImportantPages for or a site
+    select_related = ["about", "home"]
+
+    about = models.ForeignKey(
+        'wagtailcore.Page', null=True, on_delete=models.SET_NULL, related_name='+')
+    
+    home = models.ForeignKey(
+        'wagtailcore.Page', null=True, on_delete=models.SET_NULL, related_name='+')
+
+    panels = [
+        PageChooserPanel('about', ['waitlist.LearnMore']),
+        PageChooserPanel('home', ['home.HomePage']),
+    ]
