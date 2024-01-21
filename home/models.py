@@ -19,6 +19,15 @@ class HomePage(Page):
         FieldPanel('our_promise'),
     ]
 
+    def get_context(self, request, *args, **kwargs):
+        context = super(HomePage, self).get_context(request, *args, **kwargs)
+        testimonials = Testimonial.objects.live()
+        faqs = FAQs.objects.live()
+        
+        context["testimonials"] = testimonials
+        context["faqs"] = faqs
+        return context
+
 @register_snippet
 class Testimonial(models.Model):
     full_name = models.CharField(max_length=500, null=True)
@@ -33,4 +42,14 @@ class Testimonial(models.Model):
     ]
     def __str__(self):
         return self.full_name
-    
+@register_snippet
+class FAQs(models.Model):
+    question = models.CharField(max_length=500, null=True)
+    answer = RichTextField(blank=True)
+
+    panels = [
+        FieldPanel('question'),
+        FieldPanel('answer'),
+    ]
+    def __str__(self):
+        return self.question
