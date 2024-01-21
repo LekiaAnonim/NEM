@@ -1,4 +1,11 @@
-{% extends "base.html" %} {% load static %}{% load wagtailimages_tags %} {% block content %}
+{% extends "base.html" %} {% load static %}{% load wagtailimages_tags %}
+
+<head>
+    {% block extra_styles %}
+    <link rel="stylesheet" href="/static/css/learn.css"> {% endblock %}
+</head>
+
+{% block content %}
 <section class="home-hero container-fluid" style="background-image: url('/static/images/learnmore_bg.jpg'); background-repeat: no-repeat; background-size: conver;">
     {% include 'header.html' %}
     <div class="row learn_more_welcome-text">
