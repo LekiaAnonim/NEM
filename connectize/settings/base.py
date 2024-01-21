@@ -64,7 +64,13 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
-
+import cloudinary
+          
+cloudinary.config( 
+  cloud_name = "dv54rxiyi", 
+  api_key = "538532396189647", 
+  api_secret = "yqZ5OXRKW27djIgeiDsKg9fcsPY" 
+)
 ROOT_URLCONF = "connectize.urls"
 
 TEMPLATES = [
@@ -188,4 +194,5 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-WAGTAILADMIN_BASE_URL = "http://example.com"
+WAGTAILADMIN_BASE_URL = "https://conectize.co"
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

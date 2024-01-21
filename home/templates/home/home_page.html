@@ -1,4 +1,4 @@
-{% block content %}
+{% extends "base.html" %} {% load static %}{% load wagtailimages_tags %}{% block content %}
 <section class="home-hero container-fluid" style="background-image: url('/static/images/home_hero.jpg'); background-repeat: no-repeat; background-size: conver;">
     {% include 'header.html' %}
     <div class="row welcome-text">
@@ -290,7 +290,7 @@
     </div>
 </section>
 <section class="waitlist-form container faq" loading="lazy" id="join-waitlist">
-    <div class="section-title section-header row ">
+    <div class="section-title section-header row">
         <h1>Join the exclusive <span>waitlist</span></h1>
     </div>
     {% include 'waitlist/waitlist_form.html' %}

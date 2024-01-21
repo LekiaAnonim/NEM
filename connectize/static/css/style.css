@@ -772,4 +772,8 @@ a:hover {
     .about-summary-image img {
         height: 473px;
     }
+    .home-hero {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
