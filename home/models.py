@@ -21,8 +21,8 @@ class HomePage(Page):
 
     def get_context(self, request, *args, **kwargs):
         context = super(HomePage, self).get_context(request, *args, **kwargs)
-        testimonials = Testimonial.objects.live()
-        faqs = FAQs.objects.live()
+        testimonials = Testimonial.objects.all()
+        faqs = FAQs.objects.all()
         
         context["testimonials"] = testimonials
         context["faqs"] = faqs
