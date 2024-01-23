@@ -22,6 +22,11 @@ body {
 .home-hero {
     padding-left: 40px;
     padding-right: 40px;
+    margin-bottom: 40px;
+}
+
+.img-fluid {
+    width: 100%;
 }
 
 .navigation-header {
@@ -413,6 +418,7 @@ p {
     padding: 20px;
     gap: 20px !important;
     flex-basis: 100%;
+    margin-bottom: 40px;
 }
 
 .testimony-avatar {
@@ -775,5 +781,27 @@ a:hover {
     .home-hero {
         padding-left: 10px;
         padding-right: 10px;
+    }
+    .section-header h1 {
+        font-size: 34px;
+        line-height: 1.1;
+    }
+    .learn-more-link {
+        font-size: 20px;
+    }
+    .about-summary-card p {
+        font-size: 18px;
+    }
+    .about-summary-card h2 {
+        font-size: 24px;
+    }
+    .tesmonial-card .col-8 {
+        width: 100%;
+    }
+    .faq .section-title h1 {
+        font-size: 34px;
+    }
+    .accordion-item h2 button {
+        font-size: 18px !important;
     }
 }
