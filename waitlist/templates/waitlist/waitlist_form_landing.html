@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% load static %}{% load wagtailimages_tags %}
+
+
+
+{% block content %}
+<div class="display-sign-container batch-container login-container" style="z-index: 1000;">
+    <div class="card text-center">
+        <div class="card-header">
+            Submission Successful
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Thank you for joining our wait list.</h5>
+            <p class="card-text">{{page.thank_you_text|richtext}}.</p>
+            <a href="/" class="btn btn-primary">Home</a>
+        </div>
+        <div class="card-footer text-muted">
+            Check your email inbox or spam for a confirmation email.
+        </div>
+    </div>
+</div>
+{% endblock %}
