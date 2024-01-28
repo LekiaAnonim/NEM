@@ -1,6 +1,8 @@
 {% load wagtailimages_tags %}{% load static menus_tags %}{% get_menu "waitlist-menu" as menu %}
 <div class="row navigation-header">
-    <div class="col justify-content-start logo">NEM</div>
+    <div class="col justify-content-start logo">
+        <a href="/"><img src="/static/images/Connectize Logo full color png.png" alt="Connectize logo"></a>
+    </div>
     <div class="col nav-menus">
         <ul class="nav justify-content-end align-items-center">
             {% for item in menu.menu_items.all %}
@@ -21,7 +23,9 @@
     </button>
     <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
         <div class="offcanvas-header">
-            <div class="col justify-content-start logo" id="offcanvasTopLabel" style="color:black;">NEM</div>
+            <div class="col justify-content-start logo" id="offcanvasTopLabel" style="color:black;">
+                <a href="/"><img src="/static/images/Connectize Logo full color png.png" alt="Connectize logo"></a>
+            </div>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
@@ -32,7 +36,7 @@
                 </li>
                 {% endfor %}
                 <li class="nav-item">
-                    <a class="nav-link btn btn-primary join-waitlist-btn" role="button" data-bs-toggle="button" href="/#join-waitlist">Join waitlist</a>
+                    <a class="nav-link btn btn-primary join-waitlist-btn" role="button" data-bs-toggle="button" href="#join-waitlist">Join waitlist</a>
                 </li>
             </ul>
         </div>
