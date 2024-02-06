@@ -612,6 +612,9 @@ min-height: 100%; */
 .all-rights-reserved {
     color: #fff;
     margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 a:hover {
@@ -637,6 +640,11 @@ a:hover {
 }
 
 .btn-primary:hover {
+    background: #464646 !important;
+    background-color: #464646 !important;
+    border: none;
+}
+.btn-primary:active {
     background: #464646 !important;
     background-color: #464646 !important;
     border: none;

@@ -93,5 +93,10 @@
             </div>
         </div>
     </div>
-    <div class="row align-items-center all-rights-reserved justify-content-center ">All rights reserved 2023</div>
+    <div class="row align-items-center all-rights-reserved justify-content-center"><span>All rights reserved</span> <span id="copy-year"></span></div>
+    <script> 
+        const d = new Date();
+        let year = d.getFullYear();
+        document.getElementById('copy-year').innerText = year;
+    </script>
 </footer>
