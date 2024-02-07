@@ -528,7 +528,10 @@ min-height: 100%; */
 .waitlist-form input {
     height: 60px;
 }
-
+.accordion-body p{
+    color: #000 !important;
+    text-align: left !important;
+}
 .form-button {
     border-radius: 50px;
     background: var(--primary-orange);
