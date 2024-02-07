@@ -46,10 +46,14 @@ class Testimonial(models.Model):
 class Faq(models.Model):
     question = models.CharField(max_length=500, null=True)
     answer = RichTextField(blank=True)
+    accordion_heading_id = models.CharField(max_length=500, null=True)
+    flush_collapse_id = models.CharField(max_length=500, null=True)
 
     panels = [
         FieldPanel('question'),
         FieldPanel('answer'),
+        FieldPanel('accordion_heading_id'),
+        FieldPanel('flush_collapse_id'),
     ]
     def __str__(self):
         return self.question
