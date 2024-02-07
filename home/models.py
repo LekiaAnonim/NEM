@@ -43,7 +43,7 @@ class Testimonial(models.Model):
     def __str__(self):
         return self.full_name
 @register_snippet
-class FAQs(models.Model):
+class Faq(models.Model):
     question = models.CharField(max_length=500, null=True)
     answer = RichTextField(blank=True)
 
