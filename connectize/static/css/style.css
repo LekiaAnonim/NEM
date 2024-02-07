@@ -252,7 +252,7 @@ p {
 
 .service-feature-card {
     width: 100%;
-    height: 370px;
+    min-height: 370px;
     flex-shrink: 0;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.80);
@@ -265,6 +265,7 @@ p {
     flex-direction: column;
     z-index: 10;
     min-width: 300px;
+    height: fit-content;
 }
 
 .service-feature-container {
