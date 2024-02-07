@@ -8,6 +8,7 @@
 
 body {
     width: 100%;
+    overflow-x: hidden !important;
 }
 
 .container {
@@ -528,8 +529,9 @@ min-height: 100%; */
 .waitlist-form input {
     height: 60px;
 }
-.accordion-body p{
+.faq .accordion-body p{
     color: #000 !important;
+    text-align: left !important;
 }
 .form-button {
     border-radius: 50px;
