@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% load static %}{% load wagtailimages_tags %}
+{% extends "base.html" %} {% load static %}{% load wagtailimages_tags %}{% load wagtailcore_tags %}
 
 
 
@@ -10,7 +10,7 @@
         </div>
         <div class="card-body">
             <h5 class="card-title">Thank you for joining our wait list.</h5>
-            <p class="card-text">{{page.thank_you_text|richtext}}.</p>
+            <p class="card-text">{{self.thank_you_text|richtext}}</p>
             <a href="/" class="btn btn-primary">Home</a>
         </div>
         <div class="card-footer text-muted">
