@@ -1,5 +1,5 @@
 :root {
-    --primary-orange: #FFA800;
+    --primary-orange: #F1C644;
     --white: #F9F9F9;
     --black: #000000;
     --primary-blck: #1B1B1B;
@@ -35,15 +35,15 @@ body {
 }
 
 .nav-link {
-    color: var(--white);
+    color: var(--font-drk-600);
     font-size: 24px;
     font-weight: 500;
 }
 
 .join-waitlist-btn {
     border-radius: 50px;
-    background: var(--white);
-    color: black;
+    background: var(--black);
+    color: white;
     font-size: 24px;
     font-weight: 700;
     border: none;
@@ -71,7 +71,7 @@ body {
 .welcome-text h1,
 p {
     text-align: center;
-    color: var(--white);
+    color: var(--font-drk-600);
 }
 
 .welcome-text h1 {
@@ -115,7 +115,7 @@ p {
 .no-background {
     background: none;
     border: 4px solid var(--white);
-    color: var(--white);
+    color: var(--font-drk-600);
 }
 
 .trusted-by {
@@ -179,16 +179,33 @@ p {
     max-width: 593px;
     min-width: 239px;
     min-height: 232px;
-    width: 593px;
+    width: 100%;
     border-radius: 10px;
-    margin-bottom: 79px;
+    /* margin-bottom: 79px; */
     padding: 20px 35px;
-    margin-left: -150px;
-    box-shadow: 14px 24px 54px 0px rgba(0, 0, 0, 0.18);
-}
+    /* margin-left: -150px; */
+    box-shadow: 20px 30px 50px 0px #00000033;
 
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+.about-summary-card .hide-text{
+    display: none;
+}
+.about-summary-card:hover .hide-text{
+    display: block;
+}
+.about-summary-card:hover .show{
+    display: none;
+}
+.about-summary-cards{
+    display: flex;
+    gap: 15px;
+}
 .about-summary-cards .card-2 {
-    margin-left: -321px;
+    /* margin-left: -321px; */
     background: var(--font-drk-600);
 }
 
@@ -215,13 +232,13 @@ p {
 
 .about-summary-card h2 {
     color: var(--primary-blck);
-    font-size: 34px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .about-summary-card p {
     color: var(--primary-blck);
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
     text-align: left;
 }
@@ -253,21 +270,22 @@ p {
 
 .service-feature-card {
     width: 100%;
-    min-height: 370px;
+    /* min-height: 370px; */
     flex-shrink: 0;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.80);
     box-shadow: 10px 20px 50px 0px rgba(0, 0, 0, 0.20);
     backdrop-filter: blur(15px);
     margin-bottom: 62px;
-    padding: 43px;
+    padding: 20px;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    /* flex-direction: column; */
     z-index: 10;
     min-width: 300px;
     height: fit-content;
 }
+
 
 .service-feature-container {
     display: flex;
@@ -283,14 +301,14 @@ p {
     height: 88px;
     flex-shrink: 0;
     margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 35px;
+    margin-right: 10px;
+    /* margin-bottom: 35px; */
     backdrop-filter: none;
 }
 
 .service-feature-card h2 {
     color: var(--primary-blck);
-    text-align: center;
+    /* text-align: center; */
     font-size: 24px;
     font-weight: 700;
     backdrop-filter: none;
@@ -301,11 +319,15 @@ p {
     font-size: 20px;
     font-weight: 400;
     backdrop-filter: none;
+    text-align: left;
 }
-
+/* .service-feature-card-2{
+    margin-top: 50%;
+} */
 .features-services {
     display: flex;
     justify-content: center;
+    
 }
 
 .service-feature-container .margin-right {
@@ -361,7 +383,7 @@ p {
 }
 
 .word-metric-image {
-    margin-top: -550px;
+    /* margin-top: -550px; */
     /* position: relative; */
     z-index: 10;
 }
@@ -635,6 +657,7 @@ a:hover {
     float: right;
 }
 
+
 .offcanvas-body .nav-link {
     color: var(--primary-blck);
 }
@@ -658,6 +681,18 @@ a:hover {
     width: 50px;
     height: 50px;
 }
+.first-mockup {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.first-mockup .laptop{
+    max-width: 80%;
+    min-width: 60%;
+}
+.first-mockup .phone{
+    max-width: 40%;
+}
 @media screen and (max-width: 1100px) {
     .about-summary-image img {
         max-width: 100%;
@@ -679,7 +714,7 @@ a:hover {
         margin-left: 0px;
     }
     .about-summary-cards {
-        margin-top: -400px;
+        /* margin-top: -400px; */
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -779,7 +814,7 @@ a:hover {
         margin-top: 28px;
     }
     .word-metric-image {
-        margin-top: -150px;
+        /* margin-top: -150px; */
         /* position: relative; */
         z-index: 10;
     }
