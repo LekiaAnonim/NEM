@@ -701,6 +701,7 @@ a:hover {
     margin-bottom: -200px;
     /* transform: rotate(-120deg); */
     transform-origin: left center;
+    max-width: 70%;
 }
 @media screen and (max-width: 1100px) {
     .about-summary-image img {
