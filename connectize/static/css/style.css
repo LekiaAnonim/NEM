@@ -382,7 +382,7 @@ p {
     border-bottom: solid;
 }
 .map-image{
-    margin-top: -400px;
+    margin-top: -200px;
 }
 .word-metric-image {
     /* margin-top: -550px; */
@@ -698,10 +698,10 @@ a:hover {
     max-width: 40%;
 }
 .people-group{
-    margin-bottom: -200px;
-    /* transform: rotate(-120deg); */
+    margin-bottom: -150px;
+    transform: rotate(-270deg);
     transform-origin: left center;
-    max-width: 70%;
+    max-width: 50%;
 }
 @media screen and (max-width: 1100px) {
     .about-summary-image img {
