@@ -699,7 +699,7 @@ a:hover {
 }
 .people-group{
     margin-bottom: -150px;
-    transform: rotate(-270deg);
+    transform: rotate(30deg);
     transform-origin: left center;
     max-width: 50%;
 }
@@ -823,10 +823,19 @@ a:hover {
         font-size: 18px;
         margin-top: 28px;
     }
+    .section-title-1 p {
+        font-size: 18px;
+    }
     .word-metric-image {
         /* margin-top: -150px; */
         /* position: relative; */
         z-index: 10;
+    }
+    .service-feature-card p {
+        font-size: 16px;
+    }
+    .service-feature-card h2 {
+        font-size: 20px;
     }
 }
 
