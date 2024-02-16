@@ -13,11 +13,13 @@ body {
 
 .container {
     padding: 10px 40px 80px 40px;
+    margin: auto;
 }
 
 .container-fluid {
-    padding: 2px 0 80px 0;
+    padding: 2px auto 80px auto;
     height: fit-content;
+    margin: auto;
 }
 
 .home-hero {
@@ -434,7 +436,7 @@ p {
     justify-content: center;
     height: fit-content;
     min-width: 300px;
-    /* margin: 10px; */
+    margin: 10px;
 }
 
 .testimonial-container {
@@ -894,7 +896,7 @@ a:hover {
     }
 
     .container-fluid {
-        padding: 2px 0 20px 0;
+        padding: 2px auto 20px auto;
         height: fit-content;
     }
     
