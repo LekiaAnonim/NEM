@@ -434,7 +434,7 @@ p {
     justify-content: center;
     height: fit-content;
     min-width: 300px;
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .testimonial-container {
@@ -446,7 +446,7 @@ p {
     gap: 20px !important;
     flex-basis: 100%;
     margin-bottom: 40px;
-    margin-top: -40px;
+    margin-top: auto;
 }
 
 .testimony-avatar {
@@ -782,6 +782,10 @@ a:hover {
     .nav-menus {
         display: none;
     }
+    .service-feature-card{
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media screen and (max-width: 664px) {
@@ -837,6 +841,10 @@ a:hover {
     .service-feature-card h2 {
         font-size: 20px;
     }
+    .service-feature-card{
+        flex-direction: row;
+        align-items: left;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -873,5 +881,35 @@ a:hover {
     }
     .accordion-item h2 button {
         font-size: 18px !important;
+    }
+    .join-waitlist-btn {
+        font-size: 16px;
+        padding: 10px 14px;
+        border-radius: 100px;
+    }
+    .hero-cta-btn-container .join-waitlist-btn {
+        border-radius: 100px;
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+
+    .container-fluid {
+        padding: 2px 0 20px 0;
+        height: fit-content;
+    }
+    
+}
+
+@media screen and (max-width: 400px) {
+    .service-feature-card{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .service-feature-card svg {
+        
+        margin-left: 0;
+        margin-right: auto;
+        
     }
 }
