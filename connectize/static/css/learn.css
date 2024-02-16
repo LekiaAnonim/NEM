@@ -1,13 +1,15 @@
 :root {
-    --primary-orange: #FFA800;
+    --primary-orange: #F1C644;
     --white: #F9F9F9;
     --black: #000000;
     --primary-blck: #1B1B1B;
     --font-drk-600: #242424;
 }
-
+.learn_more_welcome-text{
+    margin: 30px auto 30px 30px;
+}
 .learn_more_welcome-text h1 {
-    color: #FFF;
+    color: #000000;
     font-size: 84px;
     font-weight: 700;
     line-height: 85px;
@@ -15,9 +17,12 @@
     max-width: 884px;
     margin-bottom: 0;
 }
+.learn_more_welcome-text span {
+    color: var(--primary-orange);
+}
 
 .learn_more_welcome-text p {
-    color: #FFF;
+    color: var(--font-drk-600);
     font-size: 24px;
     font-weight: 500;
     line-height: 30px;

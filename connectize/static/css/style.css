@@ -6,20 +6,27 @@
     --font-drk-600: #242424;
 }
 
+html{
+    padding: 0;
+    margin: 0;
+}
+
 body {
     width: 100%;
     overflow-x: hidden !important;
+    padding: 0;
+    margin: 0;
 }
 
 .container {
     padding: 10px 40px 80px 40px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .container-fluid {
     padding: 2px auto 80px auto;
     height: fit-content;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .home-hero {
