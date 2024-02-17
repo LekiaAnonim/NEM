@@ -8,9 +8,12 @@
 .nav-link {
     color: #ffffff;
 }
+.ham-burger-menu svg{
+    fill: #FFF;
+}
 .join-waitlist-btn {
     background: white;
-    color: black !important;
+    color: black;
 }
 .learn_more_welcome-text{
     margin: 30px auto 30px 30px;
