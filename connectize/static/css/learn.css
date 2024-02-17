@@ -5,11 +5,18 @@
     --primary-blck: #1B1B1B;
     --font-drk-600: #242424;
 }
+.nav-link {
+    color: #ffffff;
+}
+.join-waitlist-btn {
+    background: white;
+    color: black !important;
+}
 .learn_more_welcome-text{
     margin: 30px auto 30px 30px;
 }
 .learn_more_welcome-text h1 {
-    color: #000000;
+    color: white;
     font-size: 84px;
     font-weight: 700;
     line-height: 85px;
@@ -17,12 +24,12 @@
     max-width: 884px;
     margin-bottom: 0;
 }
-.learn_more_welcome-text span {
+/* .learn_more_welcome-text span {
     color: var(--primary-orange);
-}
+} */
 
 .learn_more_welcome-text p {
-    color: var(--font-drk-600);
+    color: white;
     font-size: 24px;
     font-weight: 500;
     line-height: 30px;
@@ -130,7 +137,8 @@
 .about-us-body p {
     text-align: left;
     font-size: 19px;
-    font-weight: 400
+    font-weight: 400;
+    color: #f9f9f9;
 }
 
 .about-us-body h2 {
@@ -186,7 +194,9 @@
     width: 100%;
     max-height: 200px;
 }
-
+.our-values-body p{
+    color: #F9F9F9;
+}
 @media screen and (max-width: 750px) {
     .learn_more_welcome-text h1 {
         font-size: 60px;
