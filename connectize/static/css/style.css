@@ -5,7 +5,170 @@
     --primary-blck: #1B1B1B;
     --font-drk-600: #242424;
 }
+#preloader {
+    /* background: var(--blue) url('../images/preloader.gif') no-repeat center center; */
+    /* background-size: 50px; */
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 1000000000000;
+    color: #F1C644;
+    font-size: 16px;
+    font-family: "Open-Sans", sans-serif;
+    font-weight: 600;
+    perspective: 80px;
+    transform-style: preserve-3d;
+}
 
+  
+#preloader span {
+position: relative;
+transition: all 0.3s ease;
+display: inline-block;
+-webkit-animation: wave 2.4s ease infinite;
+        animation: wave 2.4s ease infinite;
+letter-spacing: 0.01em;
+transform-origin: 100% 50%;
+transform-style: preserve-3d;
+}
+#preloader span:nth-child(1) {
+-webkit-animation-delay: 0s;
+        animation-delay: 0s;
+}
+#preloader span:nth-child(2) {
+-webkit-animation-delay: 0.05s;
+        animation-delay: 0.05s;
+}
+#preloader span:nth-child(3) {
+-webkit-animation-delay: 0.1s;
+        animation-delay: 0.1s;
+}
+#preloader span:nth-child(4) {
+-webkit-animation-delay: 0.15s;
+        animation-delay: 0.15s;
+}
+#preloader span:nth-child(5) {
+-webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s;
+}
+#preloader span:nth-child(6) {
+-webkit-animation-delay: 0.25s;
+        animation-delay: 0.25s;
+}
+#preloader span:nth-child(7) {
+-webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+}
+#preloader span:nth-child(8) {
+-webkit-animation-delay: 0.35s;
+        animation-delay: 0.35s;
+}
+#preloader span:nth-child(9) {
+-webkit-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+}
+#preloader span:nth-child(10) {
+-webkit-animation-delay: 0.45s;
+        animation-delay: 0.45s;
+}
+#preloader span:nth-child(11) {
+-webkit-animation-delay: 0.5s;
+        animation-delay: 0.5s;
+}
+#preloader span:nth-child(12) {
+-webkit-animation-delay: 0.55s;
+        animation-delay: 0.55s;
+}
+#preloader span:nth-child(13) {
+-webkit-animation-delay: 0.6s;
+        animation-delay: 0.6s;
+}
+#preloader span:nth-child(14) {
+-webkit-animation-delay: 0.65s;
+        animation-delay: 0.65s;
+}
+#preloader span:nth-child(15) {
+-webkit-animation-delay: 0.7s;
+        animation-delay: 0.7s;
+}
+#preloader span:nth-child(16) {
+-webkit-animation-delay: 0.75s;
+        animation-delay: 0.75s;
+}
+#preloader span:nth-child(17) {
+-webkit-animation-delay: 0.8s;
+        animation-delay: 0.8s;
+}
+#preloader span:nth-child(18) {
+-webkit-animation-delay: 0.85s;
+        animation-delay: 0.85s;
+}
+#preloader span:nth-child(19) {
+-webkit-animation-delay: 0.9s;
+        animation-delay: 0.9s;
+}
+#preloader span:nth-child(20) {
+-webkit-animation-delay: 0.95s;
+        animation-delay: 0.95s;
+}
+#preloader span:nth-child(21) {
+-webkit-animation-delay: 1s;
+        animation-delay: 1s;
+}
+
+@-webkit-keyframes wave {
+0% {
+    transform: translate3D(0, 0, 0) scale(1) rotateY(0);
+    color: #46afc8;
+    text-shadow: 0 0 0 rgba(70, 175, 200, 0);
+}
+12% {
+    transform: translate3D(2px, -2px, 3px) scale(1.16) rotateY(6deg);
+    color: white;
+}
+15% {
+    text-shadow: 0 0 2px #bce2eb;
+}
+24% {
+    transform: translate3D(0, 0, 0) scale(1) rotateY(0);
+    color: #6dc0d4;
+    opacity: 1;
+}
+36% {
+    transform: translate3D(0, 0, 0) scale(1);
+}
+100% {
+    transform: scale(1);
+    opacity: 0.8;
+}
+}
+
+@keyframes wave {
+0% {
+    transform: translate3D(0, 0, 0) scale(1) rotateY(0);
+    color: #46afc8;
+    text-shadow: 0 0 0 rgba(70, 175, 200, 0);
+}
+12% {
+    transform: translate3D(2px, -2px, 3px) scale(1.16) rotateY(6deg);
+    color: white;
+}
+15% {
+    text-shadow: 0 0 2px #bce2eb;
+}
+24% {
+    transform: translate3D(0, 0, 0) scale(1) rotateY(0);
+    color: #6dc0d4;
+    opacity: 1;
+}
+36% {
+    transform: translate3D(0, 0, 0) scale(1);
+}
+100% {
+    transform: scale(1);
+    opacity: 0.8;
+}
+}
 html{
     padding: 0 !important;
     margin: 0 !important;
@@ -592,6 +755,9 @@ min-height: 100%; */
     padding-top: 70px;
     height: fit-content;
     padding-left: 40px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer a {
@@ -658,6 +824,7 @@ min-height: 100%; */
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 a:hover {
@@ -716,6 +883,19 @@ a:hover {
     transform: rotate(30deg);
     transform-origin: left center;
     max-width: 50%;
+}
+.display-sign-container{
+    position: relative;
+    margin-bottom: 40px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+}
+.card {
+   
+    border: none !important;
+    /* border-radius: 0.25rem; */
 }
 @media screen and (max-width: 1100px) {
     .about-summary-image img {
