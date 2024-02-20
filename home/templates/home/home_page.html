@@ -5,7 +5,55 @@
     <div class="row welcome-text">
         <div class="row justify-content-center">
             <h1 class="h1 welcome-cta-h1 animate__animated animate__slideInRight" loading="lazy">
-                <span>The Goal </span> is for Companies to Connect.
+                <span>The Goal </span> is for <span><b class="word"></b></span> to Connect.
+                <script>
+                    var words = ['Companies', 'Businesses'],
+                    part,
+                    i = 0,
+                    offset = 0,
+                    len = words.length,
+                    forwards = true,
+                    skip_count = 0,
+                    skip_delay = 25,
+                    speed = 180;
+                    var wordflick = function () {
+                    setInterval(function () {
+                        if (forwards) {
+                        if (offset >= words[i].length) {
+                            ++skip_count;
+                            if (skip_count == skip_delay) {
+                            forwards = false;
+                            skip_count = 0;
+                            }
+                        }
+                        }
+                        else {
+                        if (offset == 0) {
+                            forwards = true;
+                            i++;
+                            offset = 0;
+                            if (i >= len) {
+                            i = 0;
+                            }
+                        }
+                        }
+                        part = words[i].substr(0, offset);
+                        if (skip_count == 0) {
+                        if (forwards) {
+                            offset++;
+                        }
+                        else {
+                            offset--;
+                        }
+                        }
+                        $('.word').text(part);
+                    },speed);
+                    };
+
+                    $(document).ready(function () {
+                    wordflick();
+                    });
+                </script>
             </h1>
         </div>
         <div class="row justify-content-center animate__animated animate__slideInUp" loading="lazy">
@@ -234,7 +282,7 @@
             </div>
         </div>
     </div>{% endfor %} {% else %}
-    <div class="tesmonial-card animate__animated animate__slideInUp ">
+    <!-- <div class="tesmonial-card animate__animated animate__slideInUp ">
         <div class="row tesmonial-card-sub ">
             <div class="col-4 testimony-avatar ">
                 <img src="/static/images/person1.png " alt=" ">
@@ -282,7 +330,7 @@
             </div>
         </div>
     </div>
-    <div class="tesmonial-card animate__animated animate__slideInUp ">
+    <div class="tesmonial-card animate__animated animate__slideInUp "> -->
         <div class="row tesmonial-card-sub ">
             <div class="col-4 testimony-avatar">
                 <img src="/static/images/person3.png" alt=" ">
