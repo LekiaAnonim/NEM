@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('wagtailcore', '0092_remove_formsubmission_page_and_more'),
+        # ('wagtailcore', '0092_remove_formsubmission_page_and_more'),
     ]
 
     operations = [
