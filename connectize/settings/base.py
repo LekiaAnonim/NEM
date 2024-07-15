@@ -122,7 +122,7 @@ WSGI_APPLICATION = "connectize.wsgi.application"
 #     }
 # }
 DATABASES = {
-    "default": dj_database_url.config(default='postgresql://postgres:D-FGAc1535BD2Bc6-C11Dae6C155d-Cb@monorail.proxy.rlwy.net:15356/railway', conn_max_age=1800),
+    "default": dj_database_url.config(default='postgresql://postgres:GXWRJzODlSDdhLTyWfEKiZARMkbglFVr@roundhouse.proxy.rlwy.net:12895/railway', conn_max_age=1800),
 }
 
 
