@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'django_extensions',
 ]
 
+SITE_ID = 1
+
 MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -64,6 +66,7 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
+
 import cloudinary
           
 cloudinary.config( 
