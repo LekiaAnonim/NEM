@@ -26,6 +26,8 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # Application definition
 
 INSTALLED_APPS = [
+    "authentication",
+    "api",
     "menus",
     "waitlist",
     "home",
@@ -44,16 +46,40 @@ INSTALLED_APPS = [
     "wagtail",
     "modelcluster",
     "taggit",
-    "django.contrib.admin",
+    # "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'django_extensions',
+    'django.contrib.sites',
+    'django_filters',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
 ]
-
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
 SITE_ID = 1
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # allauth specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'email'
+LOGOUT_ON_PASSWORD_CHANGE = False
+
+AUTH_USER_MODEL = 'authentication.User'
+WAGTAIL_USER_EDIT_FORM = 'authentication.forms.CustomUserEditForm'
+WAGTAIL_USER_CREATION_FORM = 'authentication.forms.CustomUserCreationForm'
+WAGTAIL_USER_CUSTOM_FIELDS = ['email', 'gender', 'date_of_birth', 'bio', 'role', 'company', 'verified', 'country', 'city', 'phone_number', 'region', 'address', 'avatar']
 
 MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -65,6 +91,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 import cloudinary

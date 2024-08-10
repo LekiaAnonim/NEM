@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.urls import include, path
-from django.contrib import admin
+# from django.contrib import admin
 
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail import urls as wagtail_urls
@@ -9,11 +9,14 @@ from wagtail.documents import urls as wagtaildocs_urls
 from search import views as search_views
 
 urlpatterns = [
-    path("django-admin/", admin.site.urls),
+    # path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
-
+    path('api/', include('api.urls')),
+    path('api/rest-auth/', include('rest_framework.urls')),
+    path('api/auth/', include('dj_rest_auth.urls')),
+    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
 ]
 
 

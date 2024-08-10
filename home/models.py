@@ -7,7 +7,6 @@ from wagtail.snippets.models import register_snippet
 from cloudinary.models import CloudinaryField
 class HomePage(Page):
     template = 'home/home_page.html'
-    # max_count = 1
     hero_section_message = RichTextField(blank=True)
     our_mission = RichTextField(blank=True)
     our_vision = RichTextField(blank=True)
