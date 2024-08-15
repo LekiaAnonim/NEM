@@ -23,4 +23,5 @@ router.register(r'service-images', service_view.ServiceImageViewSet, basename='s
 router.register(r'service-categories', service_view.ServiceCategoryViewSet, basename='service-category')
 urlpatterns = [
     path('', include(router.urls)),
+    
 ]

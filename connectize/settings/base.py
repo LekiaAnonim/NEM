@@ -63,6 +63,8 @@ INSTALLED_APPS = [
     # 'rest_auth.registration',
     'dj_rest_auth',
     'dj_rest_auth.registration',
+    'django_comments_xtd',
+    'django_comments',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (
@@ -73,6 +75,27 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 50
 }
+# Tell django.contrib.comments that the application
+# handling the comments is django-comments-xtd:
+COMMENTS_APP = 'django_comments_xtd'
+COMMENTS_XTD_CONFIRM_EMAIL = False
+#  To help obfuscating comments before they are sent for confirmation.
+COMMENTS_XTD_SALT = (b"Timendi causa est nescire. "
+                    b"Aequam memento rebus in arduis servare mentem.")
+# Change comment threading.
+COMMENTS_XTD_MAX_THREAD_LEVEL = 5  # default is 0
+
+# Change comment order, by default is ('thread_id', 'order').
+COMMENTS_XTD_LIST_ORDER = ('-thread_id', 'order')
+COMMENTS_XTD_APP_MODEL_OPTIONS = {
+    'default': {
+        'allow_flagging': True,
+        'allow_feedback': True,
+        'show_feedback': True,
+        'who_can_post': 'all'  # Valid values: 'all', users'
+    }
+}
+
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -130,7 +153,7 @@ TEMPLATES = [
     },
 ]
 CSRF_TRUSTED_ORIGINS = [
-    'https://nem-production.up.railway.app', 'https://connectize.co']
+    'https://nem-production.up.railway.app', 'https://connectize.co', 'http://localhost:3000',]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
 CSRF_USE_SESSIONS = False
 CSRF_COOKIE_SECURE = True
