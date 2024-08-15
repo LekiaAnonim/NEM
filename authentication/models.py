@@ -1,9 +1,9 @@
 from django.db import models
-from wagtail.fields import RichTextField
+# from wagtail.fields import RichTextField
 # Create your models here.
 from django.contrib.auth.models import AbstractUser
-from wagtail.snippets.models import register_snippet
-from wagtail.admin.panels import FieldPanel, InlinePanel, FieldRowPanel, MultiFieldPanel, PageChooserPanel
+# from wagtail.snippets.models import register_snippet
+# from wagtail.admin.panels import FieldPanel, InlinePanel, FieldRowPanel, MultiFieldPanel, PageChooserPanel
 from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
 from django.urls import reverse
@@ -11,6 +11,9 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, Permis
 
 class Gender(models.Model):
     type = models.CharField(max_length=500, null=True, blank= True)
+
+    def __str__(self):
+        return f"{self.type}"
 
 class MyUserManager(BaseUserManager):
     def create_user(self, email, password=None):
@@ -46,7 +49,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(verbose_name='Last Name', max_length=255, null=True, blank=True)
     gender = models.ForeignKey(Gender, on_delete=models.DO_NOTHING, null=True, blank=True)
     date_of_birth = models.DateField(null=True, blank=True)
-    bio = RichTextField(null=True, blank=True)
+    bio = models.TextField(null=True, blank=True)
     role = models.CharField(max_length=500, null=True, blank=True)
     company = models.CharField(max_length=500, null=True, blank=True)
     phone_number = models.CharField(max_length=255, null=True, blank=True)

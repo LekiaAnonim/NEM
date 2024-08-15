@@ -28,22 +28,22 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 INSTALLED_APPS = [
     "authentication",
     "api",
-    "menus",
-    "waitlist",
-    "home",
-    "search",
-    'wagtail.contrib.settings',
-    "wagtail.contrib.forms",
-    "wagtail.contrib.redirects",
-    "wagtail.embeds",
-    "wagtail.sites",
-    "wagtail.users",
-    "wagtail.snippets",
-    "wagtail.documents",
-    "wagtail.images",
-    "wagtail.search",
-    "wagtail.admin",
-    "wagtail",
+    # "menus",
+    # "waitlist",
+    # "home",
+    # "search",
+    # 'wagtail.contrib.settings',
+    # "wagtail.contrib.forms",
+    # "wagtail.contrib.redirects",
+    # "wagtail.embeds",
+    # "wagtail.sites",
+    # "wagtail.users",
+    # "wagtail.snippets",
+    # "wagtail.documents",
+    # "wagtail.images",
+    # "wagtail.search",
+    # "wagtail.admin",
+    # "wagtail",
     "modelcluster",
     "taggit",
     "django.contrib.admin",
@@ -92,7 +92,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+    # "wagtail.contrib.redirects.middleware.RedirectMiddleware",
     "allauth.account.middleware.AccountMiddleware",
 ]
 
@@ -118,7 +118,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                'wagtail.contrib.settings.context_processors.settings',
+                # 'wagtail.contrib.settings.context_processors.settings',
             ],
         },
     },
@@ -144,15 +144,15 @@ WSGI_APPLICATION = "connectize.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-#     }
-# }
 DATABASES = {
-    "default": dj_database_url.config(default='postgresql://postgres:GXWRJzODlSDdhLTyWfEKiZARMkbglFVr@roundhouse.proxy.rlwy.net:12895/railway', conn_max_age=1800),
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+    }
 }
+# DATABASES = {
+#     "default": dj_database_url.config(default='postgresql://postgres:GXWRJzODlSDdhLTyWfEKiZARMkbglFVr@roundhouse.proxy.rlwy.net:12895/railway', conn_max_age=1800),
+# }
 
 
 # Password validation
