@@ -5,7 +5,7 @@ from django.contrib import admin
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
-
+from api.views.csrf_token import csrf
 from search import views as search_views
 
 urlpatterns = [
@@ -17,6 +17,7 @@ urlpatterns = [
     path('api/rest-auth/', include('rest_framework.urls')),
     path('api/auth/', include('dj_rest_auth.urls')),
     path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('csrf/', csrf),
 ]
 
 
