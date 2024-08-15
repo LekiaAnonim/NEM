@@ -11,6 +11,9 @@ class CompanyViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['organization_type', 'company_size', 'country', 'date_created']
 
+    def perform_create(self, serializer):
+        serializer.save(profile = self.request.user)
+
 
 class CompanyCategoryViewSet(viewsets.ModelViewSet):
     queryset = CompanyCategory.objects.all()

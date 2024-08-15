@@ -13,6 +13,9 @@ class CompanyCategory(models.Model):
         self.slug = slugify(self.name, allow_unicode=True)
         super(CompanyCategory, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return f"{self.name}"
+
 class CompanySize(models.Model):
     size = models.CharField(max_length=500, null=True, blank=True)
     slug = models.SlugField(null=True,  max_length=500)
@@ -21,13 +24,16 @@ class CompanySize(models.Model):
         self.slug = slugify(self.size, allow_unicode=True)
         super(CompanySize, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return f"{self.size}"
+
 class Company(models.Model):
-    profile = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="user_profile")
+    profile = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="companies")
     company_name = models.CharField(max_length=500, null=True, blank=True)
-    organization_type = models.ForeignKey(CompanyCategory, on_delete=models.SET_NULL, null=True, blank=True)
+    organization_type = models.ForeignKey(CompanyCategory, on_delete=models.SET_NULL, null=True, blank=True, related_name="companies")
     about = RichTextField(null=True, blank=True)
     tag_line = models.CharField(max_length=500, null=True, blank=True)
-    company_size = models.ForeignKey(CompanySize, on_delete=models.DO_NOTHING, null=True)
+    company_size = models.ForeignKey(CompanySize, on_delete=models.DO_NOTHING, null=True, related_name="companies")
     logo = models.ImageField(null=True, blank=True)
     banner = models.ImageField(blank=True, null=True)
     email = models.EmailField(null=True, blank=True)
@@ -44,3 +50,6 @@ class Company(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.company_name, allow_unicode=True)
         super(Company, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.company_name}"

@@ -19,4 +19,4 @@ class ServiceImageViewSet(viewsets.ModelViewSet):
     queryset = ServiceImage.objects.all()
     serializer_class = ServiceImageSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['product',]
+    filterset_fields = ['service',]
