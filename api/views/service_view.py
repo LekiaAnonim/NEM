@@ -9,6 +9,14 @@ class ServiceViewSet(viewsets.ModelViewSet):
     serializer_class = ServiceSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['category', 'company', 'featured', 'date_created']
+    search_fields = (
+        '^title',
+        '^sub_title',
+    )
+    ordering_fields = (
+        'title',
+        'date_created'
+    )
 
 
 class ServiceCategoryViewSet(viewsets.ModelViewSet):
