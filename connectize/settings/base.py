@@ -128,7 +128,7 @@ TEMPLATES = [
     },
 ]
 CSRF_TRUSTED_ORIGINS = [
-    'https://nem-production.up.railway.app', 'https://connectize.co']
+    'https://nem-production.up.railway.app', 'https://connectize.co', 'http://localhost:3000',]
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
 CSRF_USE_SESSIONS = False
 CSRF_COOKIE_SECURE = True

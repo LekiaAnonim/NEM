@@ -12,6 +12,9 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, Permis
 class Gender(models.Model):
     type = models.CharField(max_length=500, null=True, blank= True)
 
+    def __str__(self):
+        return f'{self.type}'
+
 class MyUserManager(BaseUserManager):
     def create_user(self, email, password=None):
         """

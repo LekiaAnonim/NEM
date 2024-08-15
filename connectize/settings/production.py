@@ -9,7 +9,7 @@ env = environ.Env(
 )
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-ALLOWED_HOSTS = ["nem-production.up.railway.app", "connectize.co"]
+ALLOWED_HOSTS = ["nem-production.up.railway.app", "connectize.co", 'localhost:3000']
 
 EMAIL_HOST = 'smtp.elasticemail.com'
 EMAIL_USE_TLS = True
