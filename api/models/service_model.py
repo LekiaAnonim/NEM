@@ -5,7 +5,7 @@ from django.utils.text import slugify
 from django.utils import timezone
 
 class ServiceCategory(models.Model):
-    name = models.CharField(max_length=500, null=True, blank=True)
+    name = models.CharField(max_length=500, null=True, blank=True, unique=True)
     slug = models.SlugField(null=True,  max_length=500)
 
     def save(self, *args, **kwargs):

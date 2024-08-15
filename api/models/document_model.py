@@ -3,7 +3,7 @@ from api.models.company_model import Company
 from django.utils.text import slugify
 
 class DocumentType(models.Model):
-    name = models.CharField(max_length=500, null=True, blank=True)
+    name = models.CharField(max_length=500, null=True, blank=True, unique=True)
     type = models.CharField(max_length=500, null=True, blank=True)
     slug = models.SlugField(null=True,  max_length=500)
 
