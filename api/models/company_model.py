@@ -44,8 +44,8 @@ class Company(models.Model):
     website = models.URLField(null=True, blank=True)
     verify = models.BooleanField(default=False)
     slug = models.SlugField(null=True,  max_length=500)
-    date_created = models.DateField(default=timezone.now)
-    date_updated = models.DateField(auto_now=True)
+    date_created = models.DateTimeField(default=timezone.now)
+    date_updated = models.DateTimeField(auto_now=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.company_name, allow_unicode=True)

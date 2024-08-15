@@ -10,6 +10,9 @@ class DocumentViewSet(viewsets.ModelViewSet):
     serializer_class = DocumentSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['company',]
+    ordering_fields = (
+        'date_created'
+    )
 
 
 class DocumentTypeViewSet(viewsets.ModelViewSet):

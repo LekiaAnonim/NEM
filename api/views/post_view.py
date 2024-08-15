@@ -9,3 +9,9 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['company', 'date_created']
+    search_fields = (
+        '^body',
+    )
+    ordering_fields = (
+        'date_created',
+    )

@@ -10,6 +10,13 @@ class CompanyViewSet(viewsets.ModelViewSet):
     serializer_class = CompanySerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['organization_type', 'company_size', 'country', 'date_created']
+    search_fields = (
+        '^company_name',
+    )
+    ordering_fields = (
+        'company_name',
+        'date_created'
+    )
 
     def perform_create(self, serializer):
         serializer.save(profile = self.request.user)
