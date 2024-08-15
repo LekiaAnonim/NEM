@@ -6,7 +6,7 @@ from django.utils import timezone
 # Create your models here.
 
 class CompanyCategory(models.Model):
-    name = models.CharField(max_length=500, null=True, blank=True)
+    name = models.CharField(max_length=500, null=True, blank=True, unique=True)
     slug = models.SlugField(null=True,  max_length=500)
 
     def save(self, *args, **kwargs):
@@ -17,7 +17,7 @@ class CompanyCategory(models.Model):
         return f"{self.name}"
 
 class CompanySize(models.Model):
-    size = models.CharField(max_length=500, null=True, blank=True)
+    size = models.CharField(max_length=500, null=True, blank=True, unique=True)
     slug = models.SlugField(null=True,  max_length=500)
 
     def save(self, *args, **kwargs):
@@ -29,7 +29,7 @@ class CompanySize(models.Model):
 
 class Company(models.Model):
     profile = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="companies")
-    company_name = models.CharField(max_length=500, null=True, blank=True)
+    company_name = models.CharField(max_length=500, null=True, blank=True, unique=True)
     organization_type = models.ForeignKey(CompanyCategory, on_delete=models.SET_NULL, null=True, blank=True, related_name="companies")
     about = RichTextField(null=True, blank=True)
     tag_line = models.CharField(max_length=500, null=True, blank=True)
