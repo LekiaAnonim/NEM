@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
+    'corsheaders',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (
@@ -98,7 +99,13 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOW_CREDENTIALS = True
+
+# change to https://app.example.com in production settings
+CORS_ORIGIN_WHITELIST = ['http://localhost:3000', 'https://connectize-drab.vercel.app']
 
 import cloudinary
           
@@ -128,7 +135,7 @@ TEMPLATES = [
     },
 ]
 CSRF_TRUSTED_ORIGINS = [
-    'https://nem-production.up.railway.app', 'https://connectize.co', 'http://localhost:3000',]
+    'https://nem-production.up.railway.app', 'https://connectize.co', 'http://localhost:3000', 'https://connectize-drab.vercel.app']
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'http')
 CSRF_USE_SESSIONS = False
 CSRF_COOKIE_SECURE = True
