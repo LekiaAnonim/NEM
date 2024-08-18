@@ -1,6 +1,7 @@
 from django.db import models
 # from wagtail.fields import RichTextField
 from api.models.company_model import Company
+from authentication.models import User
 from django.utils import timezone
 # Below the other imports:
 from django_comments_xtd.moderation import moderator, SpamModerator
@@ -21,7 +22,8 @@ class Post(models.Model):
     body = models.TextField()
     date_created = models.DateTimeField(default=timezone.now)
     date_updated = models.DateTimeField(auto_now=True)
-    company = models.ForeignKey(Company, on_delete=models.DO_NOTHING, null=True)
+    company = models.ForeignKey(Company, on_delete=models.DO_NOTHING, null=True, related_name='posts')
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True, related_name='post')
     allow_comments = models.BooleanField('allow comments', default=True)
     status = models.CharField(max_length=100, choices=STATUS_CHOICES,
                               default="DRAFT")
