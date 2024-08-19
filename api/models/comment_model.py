@@ -43,10 +43,7 @@ class Comment(models.Model):
         ordering = ["-commented_at"]
 
     def __str__(self):
-        if self.user:
-            author = self.user
-        else:
-            author = self.company
+        author = self.user or self.company
         return f"Comment by {author} at {self.commented_at}"
 
 

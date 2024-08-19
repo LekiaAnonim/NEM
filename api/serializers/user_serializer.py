@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from authentication.models import User, Gender
-from api.serializers.company_serializer import CompanySerializer
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     # user_profile = serializers.HyperlinkedRelatedField(many=True, read_only=True, view_name='api:company-detail')
@@ -9,7 +8,10 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
                     read_only=True,
                     view_name='api:user-detail')
     gender = serializers.SlugRelatedField(queryset=Gender.objects.all(), slug_field='type')
-    companies = CompanySerializer(many=True, read_only=True)
+    companies = serializers.HyperlinkedRelatedField(
+                    many=True,
+                    read_only=True,
+                    view_name='api:company-detail')
     followers_count = serializers.IntegerField(read_only=True)
     following_count = serializers.IntegerField(read_only=True)
     class Meta:

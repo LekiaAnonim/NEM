@@ -8,7 +8,7 @@ from rest_framework.generics import (
     RetrieveUpdateDestroyAPIView,
     ListAPIView
 )
-from api.serializers.comment_serializer import FollowerRelationshipSerializer, FollowingRelationshipSerializer
+from api.serializers.all_serializer import FollowerRelationshipSerializer, FollowingRelationshipSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from django.db.models import Count, Q, OuterRef, Exists, Subquery

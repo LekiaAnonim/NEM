@@ -1,5 +1,5 @@
 from rest_framework import viewsets, status
-from api.serializers.comment_serializer import CommentSerializer
+from api.serializers.all_serializer import CommentSerializer
 from api.models.comment_model import Comment
 from api.models.post_model import Post
 from api.models.company_model import Company
@@ -11,7 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
 
     def perform_create(self, serializer):
