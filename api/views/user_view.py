@@ -17,95 +17,44 @@ from api.models.comment_model import FollowingRelationships
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
-    def get_queryset(self):
-        queryset = (
-            User.objects.prefetch_related(
-                "following__user_following", "followers__user_follower"
-            )
-            .select_related("user")
-            .annotate(
-                followed_by_me=Exists(
-                    FollowingRelationships.objects.filter(
-                        user_follower__user=self.request.user, user_following=OuterRef("pk")
-                    )
-                ),
-                followers_count=Count("followers"),
-                following_count=Count("following"),
-            )
-        )
-
-        username = self.request.query_params.get("username")
-        first_name = self.request.query_params.get("first_name")
-        last_name = self.request.query_params.get("last_name")
-
-        if username:
-            queryset = queryset.filter(user__username__icontains=username)
-
-        if first_name:
-            queryset = queryset.filter(first_name__icontains=first_name)
-
-        if last_name:
-            queryset = queryset.filter(last_name__icontains=last_name)
-
-        return queryset
     
-    @action(
-        detail=True,
-        methods=["POST"],
-        url_path="follow",
-        permission_classes=[IsAuthenticated],
-        # authentication_classes=[JWTAuthentication],
-    )
-    def follow(self, request, pk=None):
-        follower = get_object_or_404(User, email=request.user.email)
-        following = get_object_or_404(User, pk=pk)
+    @action(detail=True, methods=['post'], url_path='follow')
+    def follow_user(self, request, pk=None):
+        target_user = self.get_object()  # The user being followed
+        user = request.user  # The user making the request
+        follower_company = request.data.get('company_id')  # The company making the request, if any
 
-        if follower == following:
-            return Response(
-                {"detail": "You cannot follow yourself."},
-                status=status.HTTP_400_BAD_REQUEST,
-            )
+        if user == target_user and follower_company is None:
+            return Response({"detail": "You cannot follow yourself."}, status=status.HTTP_400_BAD_REQUEST)
 
-        if FollowingRelationships.objects.filter(
-            user_follower=follower, user_following=following
-        ).exists():
-            return Response(
-                {"detail": "You are already following this user."},
-                status=status.HTTP_409_CONFLICT,
-            )
-
-        FollowingRelationships.objects.create(user_follower=follower, user_following=following)
-        return Response(
-            {"detail": "You started following this user."},
-            status=status.HTTP_204_NO_CONTENT,
+        follow, created = FollowingRelationships.objects.get_or_create(
+            user_following=target_user,
+            user_follower=user if user.is_authenticated else None,
+            company_follower_id=follower_company if follower_company else None
         )
+        
+        if not created:
+            return Response({"detail": "You are already following this user."}, status=status.HTTP_400_BAD_REQUEST)
+        
+        return Response({"detail": "User followed."}, status=status.HTTP_201_CREATED)
 
-    @action(
-        detail=True,
-        methods=["POST"],
-        url_path="unfollow",
-        permission_classes=[IsAuthenticated],
-        # authentication_classes=[JWTAuthentication],
-    )
-    def unfollow(self, request, pk=None):
-        follower = get_object_or_404(User, email=request.user.email)
-        following = get_object_or_404(User, pk=pk)
+    @action(detail=True, methods=['post'], url_path='unfollow')
+    def unfollow_user(self, request, pk=None):
+        target_user = self.get_object()  # The user being unfollowed
+        user = request.user  # The user making the request
+        follower_company = request.data.get('company_id')  # The company making the request, if any
 
-        try:
-            relation = FollowingRelationships.objects.get(
-                Q(user_follower=follower) & Q(user_following=following)
-            )
-            relation.delete()
-            return Response(
-                {"detail": "You have unfollowed this user."},
-                status=status.HTTP_204_NO_CONTENT,
-            )
-        except FollowingRelationships.DoesNotExist:
-            return Response(
-                {"detail": "You are not following this user."},
-                status=status.HTTP_404_NOT_FOUND,
-            )
+        follow = FollowingRelationships.objects.filter(
+            user_following=target_user,
+            user_follower=user if user.is_authenticated else None,
+            company_follower_id=follower_company if follower_company else None
+        ).first()
+
+        if not follow:
+            return Response({"detail": "You are not following this user."}, status=status.HTTP_400_BAD_REQUEST)
+        
+        follow.delete()
+        return Response({"detail": "User unfollowed."}, status=status.HTTP_204_NO_CONTENT)
 
 class UserFollowersView(ListAPIView):
     serializer_class = FollowerRelationshipSerializer
