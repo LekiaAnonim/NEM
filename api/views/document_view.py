@@ -1,4 +1,4 @@
-from api.serializers.document_serializer import DocumentSerializer, DocumentTypeSerializer
+from api.serializers.all_serializer  import DocumentSerializer, DocumentTypeSerializer
 from api.models.document_model import Document, DocumentType
 from rest_framework import generics
 from rest_framework import viewsets

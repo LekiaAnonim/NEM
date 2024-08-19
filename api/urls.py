@@ -1,6 +1,10 @@
 from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
-from api.views import user_view, company_view, document_view, post_view, product_view, service_view
+from api.views import (user_view, company_view, 
+                       document_view, post_view, 
+                       product_view, service_view,
+                       comment_view, follow_view
+                       )
 from rest_framework.routers import DefaultRouter
 
 app_name = "api"
@@ -21,6 +25,10 @@ router.register(r'product-categories', product_view.ProductCategoryViewSet, base
 router.register(r'services', service_view.ServiceViewSet, basename='service')
 router.register(r'service-images', service_view.ServiceImageViewSet, basename='service-image')
 router.register(r'service-categories', service_view.ServiceCategoryViewSet, basename='service-category')
+router.register(r'likes', follow_view.LikeViewSet, basename='like')
+router.register(r'comments', comment_view.CommentViewSet, basename='comment')
+router.register(r'follows', follow_view.FollowViewSet, basename='follow')
 urlpatterns = [
     path('', include(router.urls)),
+    
 ]
