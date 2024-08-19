@@ -151,6 +151,25 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 SECURE_REFERRER_POLICY = 'same-origin'
 WSGI_APPLICATION = "connectize.wsgi.application"
 
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-language',
+    'access-control-request-headers',
+    'access-control-request-method',
+    'authorization',
+    'content-disposition',
+    'content-encoding',
+    'content-length',
+    'content-type',
+    'cookie',
+    'host',
+    'origin',
+    'referer',
+    'user-agent',
+    'x-forwarded-for',
+    'x-requested-with'
+)
+
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
