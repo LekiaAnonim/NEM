@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import dj_database_url
+from corsheaders.defaults import default_headers
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -89,6 +90,7 @@ WAGTAIL_USER_CREATION_FORM = 'authentication.forms.CustomUserCreationForm'
 WAGTAIL_USER_CUSTOM_FIELDS = ['email', 'gender', 'date_of_birth', 'bio', 'role', 'company', 'verified', 'country', 'city', 'phone_number', 'region', 'address', 'avatar']
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -99,13 +101,18 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
     "allauth.account.middleware.AccountMiddleware",
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ALLOW_CREDENTIALS = True
-
 # change to https://app.example.com in production settings
-CORS_ORIGIN_WHITELIST = ['http://localhost:3000', 'https://connectize-drab.vercel.app']
+CORS_ALLOWED_ORIGINS = ['http://localhost:3000', 'https://connectize-drab.vercel.app']
+CORS_ALLOW_ALL_ORIGINS: True
+CORS_ALLOW_CREDENTIALS: True
+
+CORS_ALLOW_HEADERS = (
+    *default_headers,
+    
+)
+
 
 import cloudinary
           
@@ -150,25 +157,6 @@ SECURE_HSTS_PRELOAD = True
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 SECURE_REFERRER_POLICY = 'same-origin'
 WSGI_APPLICATION = "connectize.wsgi.application"
-
-CORS_ALLOW_HEADERS = (
-    'accept',
-    'accept-language',
-    'access-control-request-headers',
-    'access-control-request-method',
-    'authorization',
-    'content-disposition',
-    'content-encoding',
-    'content-length',
-    'content-type',
-    'cookie',
-    'host',
-    'origin',
-    'referer',
-    'user-agent',
-    'x-forwarded-for',
-    'x-requested-with'
-)
 
 
 # Database
