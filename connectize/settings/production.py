@@ -2,10 +2,10 @@ from .base import *
 
 import environ
 
-DEBUG = False
+DEBUG = True
 
 env = environ.Env(
-    DEBUG=(bool, False)
+    DEBUG=(bool, True)
 )
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
